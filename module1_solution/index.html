@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="DietTracker">
+	<head>
+		<title>Track Your Diet</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+        <script src="app.js"></script>
+		<style>
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	</head>
+	<body class="w3-container">
+	    <div class="container" ng-controller="DietTrackerController">
+        <h1>Track Your Diet</h1>
+        <div>
+            <input id="diet-id" type="text" placeholder="Enter Your Food Seperated By Comma" ng-model="items">
+        </div>
+        <div>
+            <button class="button" style="vertical-align:middle" ng-click="DietTracker()"><span>Check If Too Much</span></button>
+        </div>
+        <div ng-show="!void && track" class="w3-panel w3-green">{{display}}</div>
+        <div ng-show="void" class="w3-panel w3-red">Please enter data first</div>
+    </div>
+	</body>
+</html>
